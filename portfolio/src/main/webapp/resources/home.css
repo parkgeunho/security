@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+
+<style>
+body { margin: 0; }
+.zeta-menu-bar {
+  background: hotpink;
+  display: inline-block;
+  width: 100%;
+}
+.zeta-menu { margin: 0; padding: 0; }
+.zeta-menu li {
+  float: left;
+  list-style:none;
+  position: relative;
+  display: block;
+}
+.zeta-menu li:hover { background: pink; }
+.zeta-menu li.expand { background: white; }
+.zeta-menu li.expand>a { color: hotpink; }
+.zeta-menu a {
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.zeta-menu ul {
+  background: #eee;
+  border: 1px solid silver;
+  display: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 180px;
+}
+.zeta-menu ul li { float: none; }
+.zeta-menu ul li.expand { background: #ddd; }
+.zeta-menu ul li.expand a { color: black; }
+.zeta-menu ul a { color: black; }
+.zeta-menu ul ul { left: 100%; top: 0; }
+
+
+
+
+
+
+ #container {
+	        width: 1080px;
+	        margin: 0px auto;
+	        padding: 20px 60px;
+	        border: 1px solid #bcbcbc;
+	        background-color: red;
+	      }
+	  #header {
+	  	height: 150px;
+        padding:20px;
+        margin-bottom: 5px;
+        border: 1px solid #bcbcbc;
+        background-color: blue;
+      }
+      #bodyer{
+      	height: 2000px;
+      
+      }
+
+      #content{
+      	width: 776px;
+      	background-color: gray;
+      	float: left;
+      	border: 1px solid #bcbcbc;
+      	padding: 30px;
+      }
+      #contentList{
+      	width: 200px;
+      	background-color: fuchsia;
+      	float: left;
+      	border: 1px solid #bcbcbc;
+      	padding: 20px;
+      }
+      #menu {padding: 0;margin: 0;display: inline;}
+      #menu li{display: inline;}
+      
+      #menu a{color: #fff;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	text-shadow: 1px 1px 0px #283744; }
+      #test{display: none;}
+		
+		@media all and (max-width:768px){
+		
+		#container{width:auto; min-height: 200px;}
+		#header{width: auto; min-height: 100px;}
+		#nav{width: auto; min-height: 50px;}
+		#menu{display: none;}
+		#test{display: block;
+		background-color: #283744;
+		width: 100%;
+		position: relative;}
+		.zeta-menu li{
+		float: none;
+		display: none;
+		}
+		
+		.zeta-menu ul{
+		position: static;
+		width: 100%;
+		}
+		
+		#content{width: auto;float: none; min-height: 200px;}
+		#contentList{display: none;}
+		
+		}
+
+
+
+
+
+
+
+
+</style>
+ 
