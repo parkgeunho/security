@@ -6,72 +6,72 @@
 	String cp = request.getContextPath();
 
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-<title>responsive dropdown menu</title>
+  <meta charset="UTF-8">
+  <title>Summernote</title>
+    
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+  <script src="/blog/resources/fileupload/jquery.ui.widget.js"></script>
+  <script src="/blog/resources/fileupload/jquery.iframe-transport.js"></script>
+  <script src="/blog/resources/fileupload/jquery.fileupload.js"></script>	
+  
+  
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/erp/resources/menu.css">
-<script type="text/javascript" src="/portfolio/resources/sockjs-0.3.4.min"/></script>
-<body>
-        <script type="text/javascript">
-        var test = document.getElementById("chat");
-        alert(test);
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <script src="/blog/resources/summernote/summernote.js"></script>
+  <script src="/blog/resources/summernote/lang/summernote-ko-KR.js"></script>
+  
+  
+  <script src="/blog/resources/fileupload/mycontroll.js"></script>
+   <link href="/blog/resources/fileupload/dropzone.css" type="text/css" rel="stylesheet">
+  
+</head>
+<body style="margin: 0; padding-bottom: 0">
+	<Form name="boardWrite" method="post" action="test" id="boardWrite" >
+	
+		<label><input type="text" name="subject"  placeholder="제목을 입력해주세요."></label>
+		<div class="summernote" id="summernote"></div>
+		<div style="width: 500px;">
+	 
+	    	<div id="filezone" style="width: 500px; height: 200px;background-color: blue;">Drop files here</div>
+			<input id="fileupload" type="file" name="files[]" data-url="filecontroll/upload" multiple style="display: none;">
+	
+		
+		</div>
+		<button type="button">취소</button> <button type="button" id="subbmit">즈장</button>
+	</Form>
+	
+  <script>
+    $(document).ready(function() {
+        $('.summernote').summernote({
+        	
+        	lang : 'ko-KR',
+        	width : '720px'
+   		 });
         
-            var wsUri = "ws://localhost:8080/blog/websocket/echo.do";
-           
-            function init() {
-                output = document.getElementById("output");
-            }
-            function send_message() {
-                websocket = new WebSocket(wsUri);
-                websocket.onopen = function(evt) {
-                    onOpen(evt)
-                };
-                websocket.onmessage = function(evt) {
-                    onMessage(evt)
-                };
-                websocket.onerror = function(evt) {
-                    onError(evt)
-                };
-            }
-           
-           
-            function onOpen(evt) {
-                writeToScreen("Connected to Endpoint!");
-                doSend(textID.value);
-            }
-            function onMessage(evt) {
-                writeToScreen("Message Received: " + evt.data);
-            }
-            function onError(evt) {
-                writeToScreen('ERROR: ' + evt.data);
-            }
-            function doSend(message) {
-                writeToScreen("Message Sent: " + message);
-                websocket.send(message);
-                //websocket.close();
-            }
-            function writeToScreen(message) {
-                var pre = document.createElement("p");
-                pre.style.wordWrap = "break-word";
-                pre.innerHTML = message;
-                
-                output.appendChild(pre);
-            }
-            window.addEventListener("load", init, false);
-        </script>
-        <h1 style="text-align: center;">Hello World WebSocket Client</h1>
-        <br>
-        <div style="text-align: center;">
-            <form action="">
-                <input onclick="send_message()" value="Send" type="button">
-                <input id="textID" name="message" value="Hello WebSocket!" type="text"><br>
-            </form>
-        </div>
-        <div id="output"></div>
-        <div id="chat"></div>
-</body>
+        $('#subbmit').on('click',function(){
+            $('.summernote').append('<input type="hidden" name="Contents", id="Contents" />');
+            console.log("a");
+            $('#Contents').val($('#summernote').summernote('code'));
+            alert($('#Contents').val());
+            $('#boardWrite').submit();
+            alert("?");
+        })
+     });
+    
+/*     var checkUnload = true;
+    $(window).on("beforeunload", function(){
+        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+    });
+     */
 
+    
+  </script>
+
+
+</body>
 </html>

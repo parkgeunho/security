@@ -3,9 +3,13 @@ package com.portfolio.blog;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -43,13 +47,17 @@ public class HomeController {
 		
 		return "home";
 	}
-	@RequestMapping(value = "/test",method = RequestMethod.GET)
-	public String test(Model model){
-		
-		
-		
+	@RequestMapping(value = "/test",method = {RequestMethod.GET,RequestMethod.POST})
+	public String test(Model model,HttpServletRequest req){
 		
 		return "test";
+	}
+	
+	@RequestMapping(value = "/titi",method = RequestMethod.GET)
+	public String dd(Model model,HttpServletRequest req , HttpServletResponse res) throws IOException{
+		
+		return "LOTTO";
+	
 	}
 	
 	 
