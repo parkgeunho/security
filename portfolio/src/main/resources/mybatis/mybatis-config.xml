@@ -10,12 +10,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
   <property name="url" value="jdbc:mysql://192.168.86.128:3306/test"/>
 
-  <property name="username" value="test"/>
-  <property name="password" value="test"/>
+  <property name="username" value="test1"/>
+  <property name="password" value="test1"/>
  </properties>
 
 
-  <!--   <mappers >
-        <mapper resource ="/mybatis/blog_sql.xml"/>
-    </mappers > -->
+    <mappers >
+        <mapper resource ="/mybatis/BoardMapper.xml"/>
+    </mappers >
+    
+    
 </configuration>
